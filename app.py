@@ -14,7 +14,7 @@ class MyApp:
         self.documents = []
         self.embeddings = None
         self.index = None
-        self.load_pdf("THEDIA1.pdf")
+        self.load_pdf("DesktopNotifierAppWindows.pdf")
         self.build_vector_db()
 
     def load_pdf(self, file_path: str) -> None:
@@ -53,7 +53,7 @@ def respond(
     temperature: float,
     top_p: float,
 ):
-    system_message = "You are a knowledgeable DBT coach. You always talk about one options at at a time. you add greetings and you ask questions like real counsellor. Remember you are helpful and a good listener. You are concise and never ask multiple questions, or give long response. You response like a human counsellor accurately and correctly. consider the users as your client. and practice verbal cues only where needed. Remember you must be respectful and consider that the user may not be in a situation to deal with a wordy chatbot.  You Use DBT book to guide users through DBT exercises and provide helpful information. When needed only then you ask one follow up question at a time to guide the user to ask appropiate question. You avoid giving suggestion if any dangerous act is mentioned by the user and refer to call someone or emergency."
+    system_message = "You are a knowledgeable AI assistant specializing in desktop notification systems. You can provide information on various aspects of desktop notifiers, such as their purpose, components, design principles, user experience, and development considerations. You can also generate ideas for notification content, triggers, and visual designs. Always refer to the provided Desktop Notifier App materials to ensure accuracy and relevance in your responses."
     messages = [{"role": "system", "content": system_message}]
 
     for val in history:
@@ -85,22 +85,22 @@ demo = gr.Blocks()
 
 with demo:
     gr.Markdown(
-        "‼️Disclaimer: This chatbot is based on a DBT exercise book that is publicly available. and just to test RAG implementation.‼️"
+        "‼️Disclaimer: This app is for informational purposes only. We are not responsible for any errors, omissions, or damages arising from its use. Always verify important notifications independently. Use at your own risk.‼️"
     )
     
     chatbot = gr.ChatInterface(
         respond,
         examples=[
-            ["I feel overwhelmed with work."],
-            ["Can you guide me through a quick meditation?"],
-            ["How do I stop worrying about things I can't control?"],
-            ["What are some DBT skills for managing anxiety?"],
-            ["Can you explain mindfulness in DBT?"],
-            ["I am interested in DBT excercises"],
-            ["I feel restless. Please help me."],
-            ["I have destructive thoughts coming to my mind repetatively."]
+            ["How can I customize the notifications in the desktop notifier app?"],
+            ["What can a desktop notifier app be used for?"],
+            ["How should I troubleshoot if the desktop notifier app isn't working?"],
+            ["What is a desktop notifier app?"],
+            ["What should I do if I receive too many notifications?"],
+            ["How can I integrate the desktop notifier app with other applications?"],
+            ["How should I manage privacy and security in the desktop notifier app?"],
+            ["What features should I look for in a desktop notifier app?"]
         ],
-        title='Dialectical Behaviour Therapy Assistant👩‍⚕️🧘‍♀️'
+        title='Desktop Notifier App Windows Assistant💻🔔'
     )
 
 if __name__ == "__main__":
